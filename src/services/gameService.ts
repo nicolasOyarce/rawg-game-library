@@ -22,16 +22,6 @@ export interface GameFilters {
     search?: string;
 }
 
-export const getGames = async (): Promise<Game[]> => {
-    try {
-        const response = await apiClient.get("games");
-        return response.data.results;
-    } catch (error) {
-        console.error("Error fetching games:", error);
-        return [];
-    }
-};
-
 export const getTopRatedGames = async (): Promise<Game[]> => {
     try {
         const response = await apiClient.get("games");
@@ -42,12 +32,16 @@ export const getTopRatedGames = async (): Promise<Game[]> => {
     }
 };
 
-export const getFilteredGames = async (filters: GameFilters): Promise<Game[]> => {
+export const getFilteredGames = async (
+    filters: GameFilters
+): Promise<Game[]> => {
     try {
         const response = await apiClient.get("games", {
             params: {
                 ordering: "-metacritic",
-                ...(filters.year && { dates: `${filters.year}-01-01,${filters.year}-12-31` }),
+                ...(filters.year && {
+                    dates: `${filters.year}-01-01,${filters.year}-12-31`,
+                }),
                 ...(filters.genre && { genres: filters.genre }),
                 ...(filters.platform && { platforms: filters.platform }),
                 ...(filters.tag && { tags: filters.tag }),
