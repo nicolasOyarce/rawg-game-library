@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useGameDetails } from "../hooks/useGameDetails";
+import { Navigation } from "../components/Navigation";
 
 const GameDetails = () => {
     const { id } = useParams<{ id: string }>();
@@ -10,6 +11,8 @@ const GameDetails = () => {
 
     return (
         <div className="bg-gray-900 min-h-screen p-6">
+            <Navigation />
+            
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h1 className="text-4xl font-bold text-white mb-6">{game?.name}</h1>
                 <img src={game?.background_image} alt={game?.name} className="w-full h-96 object-cover rounded-lg mb-6" />

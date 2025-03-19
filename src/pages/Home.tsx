@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import GameFilters from "../components/GameFilters";
 import { useFilteredGames } from "../hooks/useFilteredGames";
 import { Spinner } from "../components/Spinner";
+import { Navigation } from "../components/Navigation";
 
 const Home = () => {
     const [filters, setFilters] = useState({});
@@ -10,7 +11,7 @@ const Home = () => {
 
     return (
         <div className="bg-gray-900 min-h-screen p-6">
-            <h1 className="text-3xl font-bold text-white mb-8 text-center">📌 Video Game Library</h1>
+            <Navigation />
 
             <GameFilters onApplyFilters={setFilters} />
 

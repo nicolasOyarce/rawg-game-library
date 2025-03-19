@@ -1,15 +1,21 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import GameList from "./components/GameList";
+import Home from "./pages/Home";
+import GameDetails from "./pages/GameDetails";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const queryClient = new QueryClient();
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-bold mb-4">List Games</h1>
-        <GameList />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/game/:id" element={<GameDetails />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </BrowserRouter>
     </QueryClientProvider>
   );
 }
