@@ -1,54 +1,84 @@
-# React + TypeScript + Vite
+# 🎮 RAWG GAME LIBRARY
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application built with **React, Vite, TypeScript, and Tailwind CSS** that allows users to search and view information about video games using the RAWG API.
 
-Currently, two official plugins are available:
+## 🚀 Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React + Vite**: Fast and efficient project setup.
+- **TypeScript**: Ensures type safety and better code maintainability.
+- **Tailwind CSS**: Provides a utility-first approach to styling.
+- **Axios**: Handles API requests to RAWG.
 
-## Expanding the ESLint configuration
+## 📌 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+✔️ **Homepage** displaying a list of video games sorted by **Metacritic score**.  
+✔️ **Advanced filters** to search by **year, genre, platform, tags, and developer**.  
+✔️ **Search bar** to find video games by name.  
+✔️ **Detail page** with comprehensive information, including:
+   - Title
+   - Genre
+   - Rating
+   - Cover image
+   - Platforms
+   - Release year
+   - Trailers (if available)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 🎨 Screenshots
+
+#photo
+
+## 🔧 Installation & Setup
+
+#### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/nicolasOyarce/rawg-game-library.git
+cd rawg-game-library
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+#### 2️⃣ Install dependencies
+```bash
+npm install
 ```
+
+#### 3️⃣ Configure API Key
+Create a .env file in the project root and add your RAWG API Key:
+```env
+VITE_RAWG_API_KEY=your_api_key_here
+```
+
+#### 4️⃣ Start the application
+```bash
+npm run dev
+```
+The application will be available at http://localhost:5173.
+
+## 📁 Project Structure
+```
+📦 rawg-game-library
+├── 📂 src
+│   ├── 📂 components  # Reusable UI components
+│   ├── 📂 pages       # Main application pages
+│   ├── 📂 services    # API calls
+│   ├── 📂 hooks       # Custom hooks
+│   ├── 📂 types       # TypeScript definitions
+│   ├── App.tsx        # Main application component
+│   ├── main.tsx       # React rendering entry point
+│   ├── index.css      # Global styles using Tailwind CSS
+├── .env               # Environment variables
+├── package.json       # Dependencies and scripts
+```
+
+## 🛠️ Additional Libraries
+
+- React Router: For handling page navigation.
+- React Query (optional): For better data fetching and caching management.
+
+## 📜 Considerations
+
+- The code is structured and documented for easy maintenance.
+- The project follows a modular architecture, separating components, services, hooks, and types.
+- The application is fully responsive thanks to Tailwind CSS.
+
+## 📄 License
+
+This project is licensed under the MIT License. Feel free to use and modify it.
