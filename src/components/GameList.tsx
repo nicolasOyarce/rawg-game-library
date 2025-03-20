@@ -2,6 +2,7 @@ import { useFilteredGames } from "../hooks";
 import Spinner from "./Spinner";
 import { Link } from "react-router-dom";
 import { GameListProps } from "../types";
+import { DEFAULT_IMAGE } from "../config";
 
 const GameList: React.FC<GameListProps> = ({ filters }) => {
     const { data: games, isLoading, error } = useFilteredGames(filters);
@@ -19,7 +20,12 @@ const GameList: React.FC<GameListProps> = ({ filters }) => {
                         to={`/game/${game.id}`}
                         className="bg-gray-800 rounded-lg shadow-md overflow-hidden transform transition-all hover:scale-105 hover:shadow-lg"
                     >
-                        <img src={game.background_image} alt={game.name} className="w-full h-40 object-cover" />
+                        <img
+                            src={game.background_image || DEFAULT_IMAGE}
+                            alt={game.name}
+                            className="w-full h-40 object-cover"
+                            onError={(e) => e.currentTarget.src = DEFAULT_IMAGE}
+                        />
                         <div className="p-4">
                             <h3 className="text-xl font-bold text-white">{game.name}</h3>
                             <div className="mt-2 text-sm text-gray-300">
