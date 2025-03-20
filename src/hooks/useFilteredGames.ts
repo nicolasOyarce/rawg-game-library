@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { getFilteredGames } from "../services";
-import { GameFilters } from "../types";
+import { GameFilters, Game } from "../types";
 
 export const useFilteredGames = (filters: GameFilters) => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<Game[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<Error | null>(null);
 
