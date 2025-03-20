@@ -25,7 +25,7 @@ A web application built with **React, Vite, TypeScript, and Tailwind CSS** that 
 
 ## 🎨 Screenshots
 
-#photo
+![Image Rawg Game Library](/public/images/imageReadme.png)
 
 ## 🔧 Installation & Setup
 
