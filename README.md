@@ -3,7 +3,7 @@
 A web application built with **React, Vite, TypeScript, and Tailwind CSS** that allows users to search and view information about video games using the RAWG API.
 
 > [!IMPORTANT]   
-> You can visit the page with the following url:https://rawg-game-library-qd7z3s3yf-nicolasoyarces-projects.vercel.app/
+> You can visit the page with the following url => https://rawg-game-library.vercel.app/
 
 ## 🚀 Technologies Used
 
