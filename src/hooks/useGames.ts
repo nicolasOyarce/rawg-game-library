@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { getGames, Game } from "../services/gameService";
+import { getGames } from "../services";
+import { Game } from "../types";
 
 export const useGames = () => {
     return useQuery<Game[], Error>({

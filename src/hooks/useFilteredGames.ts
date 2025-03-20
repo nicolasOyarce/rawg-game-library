@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { getFilteredGames, GameFilters } from "../services/gameService";
+import { getFilteredGames } from "../services";
+import { GameFilters } from "../types";
 
 export const useFilteredGames = (filters: GameFilters) => {
     const [data, setData] = useState([]);
@@ -11,7 +12,6 @@ export const useFilteredGames = (filters: GameFilters) => {
             setIsLoading(true);
             setError(null);
 
-            console.log("Fetching games with filters:", filters);
             try {
                 const games = await getFilteredGames(filters);
                 setData(games);

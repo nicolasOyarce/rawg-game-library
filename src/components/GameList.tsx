@@ -1,17 +1,7 @@
-import { useFilteredGames } from "../hooks/useFilteredGames";
+import { useFilteredGames } from "../hooks";
 import Spinner from "./Spinner";
 import { Link } from "react-router-dom";
-
-interface GameListProps {
-    filters: {
-        query: string;
-        year: string;
-        genre: string;
-        platform: string;
-        tag: string;
-        developer: string;
-    };
-}
+import { GameListProps } from "../types";
 
 const GameList: React.FC<GameListProps> = ({ filters }) => {
     const { data: games, isLoading, error } = useFilteredGames(filters);

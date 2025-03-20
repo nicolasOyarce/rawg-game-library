@@ -1,4 +1,4 @@
-import { useTopRatedGames } from "../hooks/useTopRatedGames";
+import { useTopRatedGames } from "../hooks";
 import { Link } from "react-router-dom";
 import Spinner from "./Spinner";
 

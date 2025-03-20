@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export function Navigation() {
+const Navigation = () => {
     return (
         <nav className="bg-gray-900 p-4">
             <Link to={"/"}>
@@ -9,3 +9,5 @@ export function Navigation() {
         </nav>
     );
 }
+
+export default Navigation;

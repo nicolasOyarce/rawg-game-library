@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export function NotFoundPage() {
+const NotFoundPage = () => {
     return (
         <div className="bg-gray-900 flex items-center justify-center h-screen">
             <div className="text-center">

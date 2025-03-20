@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getGenres, getPlatforms, getTags, getDevelopers } from "../services/filterService";
+import { getGenres, getPlatforms, getTags, getDevelopers } from "../services";
 
 interface GameFilterProps {
     onFilterChange: (filters: { query: string; year: string; genre: string; platform: string; tag: string; developer: string }) => void;

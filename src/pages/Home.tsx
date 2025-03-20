@@ -1,8 +1,5 @@
 import { useState } from "react";
-import { Navigation } from "../components/Navigation";
-import GameFilter from "../components/GameFilter";
-import GameList from "../components/GameList";
-import TopRatedGames from "../components/TopRatedGames";
+import { Navigation, GameFilter, GameList, TopRatedGames } from "../components";
 
 const Home = () => {
     const [filters, setFilters] = useState({

@@ -1,26 +1,5 @@
 import apiClient from "./apiClient";
-
-export interface Game {
-    id: number;
-    name: string;
-    background_image: string;
-    released: string;
-    rating: number;
-    metacritic: number;
-    genres: { id: number; name: string }[];
-    platforms: { platform: { id: number; name: string } }[];
-    description_raw: string;
-    clip?: { clip: string };
-}
-
-export interface GameFilters {
-    year?: string;
-    genre?: string;
-    platform?: string;
-    tag?: string;
-    developer?: string;
-    query?: string;
-}
+import { Game, GameFilters } from "../types";
 
 export const getGames = async (): Promise<Game[]> => {
     try {
@@ -70,7 +49,6 @@ export const getFilteredGames = async (filters: GameFilters): Promise<Game[]> =>
         return [];
     }
 };
-
 
 export const getGameDetails = async (id: string): Promise<Game> => {
     try {
