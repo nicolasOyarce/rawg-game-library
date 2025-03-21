@@ -1,5 +1,5 @@
 import apiClient from "./apiClient";
-import { Game, GameFilters } from "../types";
+import { Game, GameFilters, PaginatedResponse } from "../types";
 
 export const getGames = async (): Promise<Game[]> => {
     try {
@@ -7,26 +7,28 @@ export const getGames = async (): Promise<Game[]> => {
         return response.data.results;
     } catch (error) {
         console.error("Error fetching games:", error);
-        return [];
+        throw error;
     }
 };
 
-export const getTopRatedGames = async (): Promise<Game[]> => {
+export const getTopRatedGames = async (page = 1, pageSize = 20): Promise<PaginatedResponse<Game>> => {
     try {
         const response = await apiClient.get("games", {
             params: {
                 key: import.meta.env.VITE_RAWG_API_KEY,
                 ordering: "-metacritic",
+                page,
+                page_size: pageSize,
             },
         });
-        return response.data.results;
+        return response.data;
     } catch (error) {
-        console.error("Error fetching top-rated games:", error);
-        return [];
+        console.error("Error fetching top rated games:", error);
+        throw error;
     }
 };
 
-export const getFilteredGames = async (filters: GameFilters): Promise<Game[]> => {
+export const getFilteredGames = async (filters: GameFilters): Promise<Game> => {
     try {
         const response = await apiClient.get("games", {
             params: {
@@ -43,7 +45,7 @@ export const getFilteredGames = async (filters: GameFilters): Promise<Game[]> =>
         return response.data.results;
     } catch (error) {
         console.error("Error fetching filtered games:", error);
-        return [];
+        throw error;
     }
 };
 

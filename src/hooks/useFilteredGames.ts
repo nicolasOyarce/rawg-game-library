@@ -14,7 +14,7 @@ export const useFilteredGames = (filters: GameFilters) => {
 
             try {
                 const games = await getFilteredGames(filters);
-                setData(games);
+                setData(Array.isArray(games) ? games : [games]);
             } catch (err) {
                 setError(err as Error);
             } finally {
