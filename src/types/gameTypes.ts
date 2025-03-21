@@ -17,6 +17,7 @@ export interface GameFilters {
     platform?: string;
     tag?: string;
     developer?: string;
+    added?: number;
     query?: string;
 }
 

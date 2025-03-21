@@ -28,11 +28,9 @@ export const getTopRatedGames = async (): Promise<Game[]> => {
 
 export const getFilteredGames = async (filters: GameFilters): Promise<Game[]> => {
     try {
-        console.log("Aplicando filtros:", filters);
-
         const response = await apiClient.get("games", {
             params: {
-                ordering: "-metacritic",
+                ordering: "-added",
                 ...(filters.year && { dates: `${filters.year}-01-01,${filters.year}-12-31` }),
                 ...(filters.genre && { genres: filters.genre }),
                 ...(filters.platform && { platforms: filters.platform }),
@@ -42,7 +40,6 @@ export const getFilteredGames = async (filters: GameFilters): Promise<Game[]> =>
             },
         });
 
-        console.log("Juegos obtenidos:", response.data.results);
         return response.data.results;
     } catch (error) {
         console.error("Error fetching filtered games:", error);
